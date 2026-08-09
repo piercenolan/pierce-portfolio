@@ -20,19 +20,27 @@
  * no third-party script. script-src remains meaningful defense-in-depth by
  * blocking external script origins. Every other directive stays strict.
  */
+const isDev = process.env.NODE_ENV === "development";
+
+/**
+ * Dev needs two extra allowances that must never reach production: React
+ * Refresh compiles modules with eval, and the HMR client opens a websocket.
+ * Without them the dev bundle throws before hydration and every scroll-reveal
+ * section stays at opacity 0 — a blank page.
+ */
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "frame-src https://www.youtube-nocookie.com",
-  "connect-src 'self'",
+  `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "upgrade-insecure-requests",
+  ...(isDev ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
 const securityHeaders = [
