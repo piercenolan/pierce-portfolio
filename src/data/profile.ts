@@ -9,7 +9,7 @@ export const profile = {
 
   // Hero thesis — states the pivot as a capability, not an apology for it.
   thesis:
-    "I build systems where software has to survive contact with hardware — perception pipelines that drive real actuators, simulation environments modeled on real production floors, and closed sensor-to-motion control loops.",
+    "I build systems where software has to survive contact with hardware — perception pipelines that drive real actuators, real-time 3D environments built from physical installations, and closed sensor-to-motion control loops.",
 
   positioning:
     "Computer science student specializing in visual computing, moving deliberately toward mechatronics integration and manufacturing engineering. I write the code, wire the board, and measure whether it actually worked.",
@@ -28,12 +28,11 @@ export const experience = [
     location: "Seattle, WA",
     dates: "06/2026 – 09/2026",
     summary:
-      "Built a real-time 3D simulation environment that turned a single physical training facility into a scalable, multi-site virtual training system.",
+      "Built a real-time 3D environment that scaled a single-site physical showcase into a virtual showroom accessible from anywhere.",
     bullets: [
-      "Engineered a virtual reality training environment in Unreal Engine 5 showcasing employee-developed and patented safety and ergonomics solutions, extending a single-site physical \u201CDojo\u201D model into a scalable, multi-site virtual training tool.",
-      "Architected interactive Blueprint systems \u2014 custom UI widgets, interface classes, event dispatchers, and parent/child blueprint hierarchies \u2014 to streamline integration of new training content into the existing simulation architecture.",
-      "Presented a live demo to Boeing leadership and cross-functional stakeholders at OshKosh AirVenture.",
-      "Partnered with engineering and safety teams to translate physical training workflows into an interactive 3D digital environment, bridging hardware-based processes with software simulation.",
+      "Engineered a virtual reality showroom in Unreal Engine 5 presenting employee-developed and patented safety and ergonomics solutions, extending a single physical \u201CDojo\u201D showcase into a scalable environment reachable from any site.",
+      "Architected interactive Blueprint systems \u2014 custom UI widgets, interface classes, event dispatchers, and parent/child blueprint hierarchies \u2014 to streamline integration of new showcase content into the existing simulation architecture.",
+      "Presented live demos of the environment to Boeing leadership.",
     ],
     note: "Work product is proprietary; no media from this project is shown.",
     tags: ["Unreal Engine 5", "Real-time simulation", "Systems integration", "Aerospace"],
@@ -61,10 +60,10 @@ export const experience = [
       "Program leadership across a 150+ person alumni network and a 2,000+ attendee statewide conference.",
     bullets: [
       "Manage a network of 150+ alumni, running mentorship programs, event planning, and volunteer recruitment.",
-      "Mentor 5 candidate students and serve on the interview committee, narrowing 15 applicants to a Top 12.",
+      "Serve on the interview committee, narrowing 15 applicants to a Top 12, then manage that candidate pool on-site through the state conference.",
       "Plan and execute entertainment logistics for a 2,000+ attendee state conference across 3 event nights, coordinating vendors, floor plans, and volunteer staffing.",
     ],
-    tags: ["Program leadership", "Logistics", "Mentorship"],
+    tags: ["Program leadership", "Logistics", "Candidate selection"],
   },
   {
     org: "Newport School District",

@@ -66,7 +66,7 @@ export default function Home() {
           <Reveal>
             <p className="eyebrow">Selected work</p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl font-bold leading-[1.08] tracking-tightest sm:text-4xl">
-              Three systems, one thread: perception feeding something physical.
+              Three systems, one thread: perception driving physical actuation.
             </h2>
           </Reveal>
 

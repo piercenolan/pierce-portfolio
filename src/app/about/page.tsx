@@ -49,11 +49,12 @@ export default function About() {
               that drives the actuator. That combination is the whole point of mechatronics.
             </p>
             <p>
-              At Boeing this summer I built real-time 3D simulation environments modeled on
-              physical training facilities. Alongside that I&rsquo;ve been building hardware
-              directly &mdash; closed sensor-to-actuator control loops, and now a pan-tilt
-              tracking rig that puts my computer vision research into a real-time physical
-              control system.
+              At Boeing this summer I built a real-time 3D environment that scaled a single
+              physical showcase into a virtual showroom reachable from any site. Alongside
+              that I&rsquo;ve been building hardware directly &mdash; closed
+              sensor-to-actuator control loops, and now a pan-tilt tracking rig that applies
+              what my computer vision research measured to a real-time physical control
+              system.
             </p>
             <p>
               I&rsquo;ll be studying abroad in Berlin this fall, where I&rsquo;m looking to
