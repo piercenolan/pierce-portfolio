@@ -18,6 +18,17 @@ export default function Reveal({
     const node = ref.current;
     if (!node) return;
 
+    // Tells CSS the observer is alive, which cancels the reveal failsafe.
+    // Until this runs, the failsafe is what guarantees the page is readable.
+    document.documentElement.setAttribute("data-reveal-armed", "");
+
+    // Older engines without IntersectionObserver get the content immediately
+    // rather than an empty page.
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

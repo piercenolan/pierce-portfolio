@@ -64,13 +64,30 @@
   }
 }
 
-/* Scroll reveal — one orchestrated motion, disabled under reduced-motion. */
+/* Scroll reveal — one orchestrated motion, disabled under reduced-motion.
+   The hidden state is only safe because it can always undo itself: the
+   failsafe animation below reveals everything if the observer never runs,
+   so a script failure can never leave the page blank. */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition:
     opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: reveal-failsafe 0s linear 2.5s forwards;
+}
+
+@keyframes reveal-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reveal sets this on <html> as soon as one instance mounts. If the bundle
+   throws before that, the attribute is never set and the failsafe fires. */
+html[data-reveal-armed] .reveal {
+  animation: none;
 }
 
 .reveal.is-visible {
@@ -83,19 +100,22 @@
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .reveal,
+  html[data-reveal-armed] .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none;
   }
 }
 
-/* The reveal starts fully transparent, so every section would stay invisible
-   if the observer never runs. Restore it wherever scripting is unavailable. */
+/* Belt and braces for the case the failsafe cannot cover: scripting switched
+   off entirely, where nothing should ever be hidden in the first place. */
 @media (scripting: none) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none;
   }
 }
