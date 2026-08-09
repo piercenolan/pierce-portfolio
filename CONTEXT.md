@@ -8,13 +8,14 @@ Nolan Pierce. Stanford CS undergrad, Visual Computing specialization, GPA 3.7, e
 
 ## The Pivot — the single most important thing to understand
 
-I am deliberately moving out of pure software and into hands-on hardware work. Target roles, in priority order:
+I am deliberately moving out of pure software and into hands-on hardware work. Mechatronics is the strongest fit and stays the primary target, but I'm not narrowing to just that one field — EE and Computer Engineering hardware-leaning roles are also in scope. Target roles, in priority order:
 
 1. Mechatronics Integration Engineer (primary)
 2. NPI Engineer / Production Engineer
 3. Test & Evaluation Engineer
+4. EE / Computer Engineering roles with a hands-on hardware focus
 
-The distinction that matters: **I want to build, assemble, wire, integrate, and test systems from an existing design. I do not want to originate designs analytically.** In intro EE (ENGR40M) I struggled badly with solving and originating circuit schematics on paper, but genuinely enjoyed building the physical device once handed a schematic. I ruled out the ME path because of its physics-theory load, and ruled out EE for the same schematic-origination reason. I dislike web dev, pure SWE, and algorithm-design work.
+The distinction that matters most: **I want to build, assemble, wire, integrate, and test systems from an existing design.** In intro EE (ENGR40M) I struggled with solving and originating circuit schematics on paper, and that initially ruled EE out for me. That's softening — the more I actually work with electronics, the more I'm enjoying it, so EE and Computer Engineering are back on the table, not written off. I still ruled out the ME path because of its physics-theory load. I dislike web dev, pure SWE, and algorithm-design work.
 
 My CS background is not something I'm apologizing for or hiding — it's why I'm useful in mechatronics. I can write the perception pipeline, build the simulation, and program the microcontroller driving the actuator.
 
@@ -46,7 +47,7 @@ Key measured results (these numbers are load-bearing — never alter them):
 
 Critical design decision, already settled — do not suggest reversing it: the live loop deliberately does NOT run SAM 3.1 or the LSTM. Both are too heavy for real-time laptop inference and would add latency to a control loop. The lightweight predictor is justified by the measurement above (the LSTM only tied constant velocity). This is the strategic point of the whole project: it converts the CV research into a real physical control system, the exact bridge from "CS major" to "mechatronics candidate."
 
-Status: perception and prediction validated on webcam. Arduino serial listener written. Mechanical assembly, pixel-to-angle mapping, and loop tuning still to do. Servos run on external 5V, not the board rail.
+Status: perception and prediction validated on webcam. Arduino serial listener written. Mechanical assembly, pixel-to-angle mapping, and loop tuning still to do. Servos run on external 5V, not the board rail. No physical build is complete yet, so there is no demo media (photos/video) for this project. The site must present it explicitly as in-progress — don't imply it's finished or that demo assets exist.
 
 **Distance-Triggered Servo Gate** (complete, 2026) — warm-up build. HC-SR04 ultrasonic sensor triggering an SG90 servo: a closed sense→decide→actuate loop. Built, wired, and debugged in 1.5 hours against a 3-day estimate. Its purpose was hardware fluency before the turret, not resume weight. Demo video is an unlisted YouTube Short (vertical 9:16).
 
@@ -58,6 +59,10 @@ Status: perception and prediction validated on webcam. Arduino serial listener w
 - **No third-party company logos anywhere** — not Boeing, not Unreal Engine, not any employer or tool.
 - **Never inflate or round a metric.** Every number on the site must trace to actual results or résumé. If unsure whether a claim is backed, ask rather than write it.
 - **The honest-results framing is deliberate, not an oversight.** The site states plainly that the LSTM tied rather than beat the baseline, and that a rule-enforcement approach failed. That framing is the strategic point: it demonstrates measurement discipline, which is what hardware and test engineering hiring managers screen for. Do not "improve" this into stronger-sounding claims.
+
+## Site Status
+
+This is a complete revamp of an old portfolio site, not an incremental update — the previous site is being replaced. Deployment target is Vercel; as of now the site is not deployed or live anywhere. Deadline is ASAP — active recruiting/networking is underway now, this is not a background project.
 
 ## Site Purpose
 

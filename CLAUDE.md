@@ -13,6 +13,7 @@ Nolan's portfolio site. Its job is to get a hardware/robotics/aerospace hiring m
 - Never alter, round, or soften the reported metrics (5.81 px ADE tie, 10/12 windows, etc.) — they are load-bearing exactly as measured. If a number isn't clearly sourced, ask before writing it.
 - Never "fix" the honest-results framing (LSTM tied not beat, rule-enforcement failed) into something that sounds more impressive. The candor is the point.
 - Don't suggest running SAM 3.1 or the LSTM in the turret's live control loop — that's a settled design decision, not an open question.
+- The turret has no completed build and no demo media yet — present it as in-progress, not a finished centerpiece.
 
 ## Content editing
 
@@ -26,3 +27,4 @@ Site copy belongs in `src/data/profile.ts` and `src/data/projects.ts`. If a cont
 - Don't soften criticism of ideas, code, or copy to be agreeable.
 - Verify before claiming something works — run the build, don't assert it compiles without having compiled it.
 - Be concise. This project is worked on around a full-time internship.
+- Deadline is ASAP — recruiting is active now. Bias toward shipping over polishing when the two trade off.
