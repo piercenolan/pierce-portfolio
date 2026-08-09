@@ -3,42 +3,31 @@ import Image from "next/image";
 import type { Project } from "@/data/projects";
 import StatusTag from "./StatusTag";
 
-export default function ProjectCard({
-  project,
-  large = false,
-}: {
-  project: Project;
-  large?: boolean;
-}) {
+/** Grid-safe card: fills the full height of its grid cell so every card in a
+ *  row is the same size regardless of how long its teaser runs. */
+export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group flex flex-col border border-rule bg-panel transition-colors hover:border-ink"
+      className="group flex h-full flex-col border border-rule bg-panel transition-colors hover:border-ink"
     >
-      {project.hero ? (
-        <div
-          className={`relative overflow-hidden border-b border-rule bg-white ${
-            large ? "aspect-[16/9]" : "aspect-[16/10]"
-          }`}
-        >
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-rule bg-white">
+        {project.hero ? (
           <Image
             src={project.hero}
             alt=""
             fill
+            sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
-        </div>
-      ) : (
-        <div
-          className={`graticule flex items-center justify-center border-b border-rule bg-white ${
-            large ? "aspect-[16/9]" : "aspect-[16/10]"
-          }`}
-        >
-          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-graphite">
-            Build in progress
-          </span>
-        </div>
-      )}
+        ) : (
+          <div className="graticule flex h-full w-full items-center justify-center">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-graphite">
+              Build in progress
+            </span>
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2.5">
@@ -48,11 +37,7 @@ export default function ProjectCard({
           <StatusTag status={project.status} />
         </div>
 
-        <h3
-          className={`mt-2.5 font-display font-bold leading-[1.15] tracking-tightest text-ink ${
-            large ? "text-2xl" : "text-xl"
-          }`}
-        >
+        <h3 className="mt-2.5 font-display text-xl font-bold leading-[1.15] tracking-tightest text-ink">
           {project.title}
         </h3>
 

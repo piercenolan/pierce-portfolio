@@ -7,11 +7,11 @@ export default function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
         <Link
           href="/"
-          className="font-display text-[15px] font-700 font-bold tracking-tightest text-ink"
+          className="font-display text-[15px] font-bold tracking-tightest text-ink"
         >
           Nolan Pierce
         </Link>
-        <nav className="flex items-center gap-5 sm:gap-7">
+        <nav aria-label="Main" className="flex items-center gap-5 sm:gap-7">
           <Link
             href="/#work"
             className="font-mono text-[11px] uppercase tracking-[0.14em] text-graphite transition-colors hover:text-ink"
