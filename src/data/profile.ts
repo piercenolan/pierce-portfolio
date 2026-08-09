@@ -2,6 +2,8 @@ export const profile = {
   name: "Nolan Pierce",
   role: "Mechatronics & Hardware-Software Integration",
   school: "B.S. Computer Science, Stanford University — Visual Computing, 2027",
+  gradSchool:
+    "M.S. Computer Science, Stanford University — Artificial Intelligence (coterminal, admitted)",
   email: "63npierce@gmail.com",
   linkedin: "https://www.linkedin.com/in/piercenolan",
   github: "https://github.com/piercenolan",

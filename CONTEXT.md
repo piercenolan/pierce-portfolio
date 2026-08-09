@@ -29,7 +29,8 @@ Most mechatronics and NPI job postings filter for ME or EE degrees. A CS degree 
 - Fall 2026: Study abroad in Berlin (Stanford BOSP, hosted at FU Berlin). Plan to cold-email TU Berlin production-engineering and robotics-hardware labs for part-time hands-on shop time.
 - Winter 2027: CS capstone + ME210 (Intro to Mechatronics) + one more course. Schedule is fixed; no flexibility.
 - Spring 2027: One more mechatronics/ME course (not yet chosen) + join a Stanford build team.
-- June 2027: Graduate. High likelihood of an AI coterm, conditional on landing a paid TA position — unresolved.
+- June 2027: Undergraduate graduation.
+- Admitted to Stanford's coterminal M.S. in Computer Science, concentrating in Artificial Intelligence. This is settled — no longer conditional. Completion date unknown; don't put a year on it without asking.
 
 ## The Projects and Why Each Exists
 
