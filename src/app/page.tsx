@@ -70,9 +70,9 @@ export default function Home() {
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((project, i) => (
-              <Reveal key={project.slug} delay={i * 80}>
+              <Reveal key={project.slug} delay={i * 80} className="h-full">
                 <ProjectCard project={project} />
               </Reveal>
             ))}
@@ -81,9 +81,9 @@ export default function Home() {
           <Reveal>
             <p className="eyebrow mt-16">Other projects</p>
           </Reveal>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {other.map((project, i) => (
-              <Reveal key={project.slug} delay={i * 80}>
+              <Reveal key={project.slug} delay={i * 80} className="h-full">
                 <ProjectCard project={project} />
               </Reveal>
             ))}

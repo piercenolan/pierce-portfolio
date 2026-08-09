@@ -163,7 +163,7 @@ export const projects: Project[] = [
     featured: true,
     hero: "/images/projects/servo-gate/build-01.jpg",
     video: {
-      url: "https://www.youtube.com/embed/gyTrw5PYia4",
+      url: "https://www.youtube-nocookie.com/embed/gyTrw5PYia4",
       label: "Gate actuating on proximity",
     },
     teaser:
@@ -289,7 +289,7 @@ export const projects: Project[] = [
       { src: "/images/projects/warehouse/end.png", caption: "End state after projectile impact." },
     ],
     video: {
-      url: "https://www.youtube.com/embed/5A-w3V6iNXk",
+      url: "https://www.youtube-nocookie.com/embed/5A-w3V6iNXk",
       label: "Gameplay footage",
     },
   },

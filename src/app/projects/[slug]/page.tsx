@@ -97,7 +97,9 @@ export default async function ProjectPage({
                     <iframe
                       src={project.video.url}
                       title={project.video.label}
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="encrypted-media; picture-in-picture; fullscreen"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      loading="lazy"
                       allowFullScreen
                       className="absolute inset-0 h-full w-full"
                     />
@@ -143,7 +145,12 @@ export default async function ProjectPage({
                     delay={i * 60}
                     className={fig.wide ? "sm:col-span-2" : ""}
                   >
-                    <Figure src={fig.src} caption={fig.caption} index={i + 1} />
+                    <Figure
+                      src={fig.src}
+                      caption={fig.caption}
+                      index={i + 1}
+                      wide={fig.wide}
+                    />
                   </Reveal>
                 ))}
               </div>

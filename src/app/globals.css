@@ -89,3 +89,13 @@
     transition: none;
   }
 }
+
+/* The reveal starts fully transparent, so every section would stay invisible
+   if the observer never runs. Restore it wherever scripting is unavailable. */
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
