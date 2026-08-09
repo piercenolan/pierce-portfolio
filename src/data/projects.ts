@@ -73,6 +73,7 @@ export const projects: Project[] = [
       { label: "Won", text: "10 of 12 windows vs. plain LSTM; ~50% error reduction." },
       { label: "Negative result", text: "Hard rule post-refinement increased error on all 12 rules." },
       { label: "Root cause", text: "3 failure windows traced to tracking, not forecasting." },
+      { label: "Evaluated", text: "4 SportsMOT clips; cross-clip transfer held within ~0.2 px of per-clip training." },
     ],
     figures: [
       {

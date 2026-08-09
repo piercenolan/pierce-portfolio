@@ -3,7 +3,7 @@ import { profile } from "@/data/profile";
 /** Bench-readout strip of real measured values from shipped work. */
 export default function SpecStrip() {
   return (
-    <dl className="grid grid-cols-2 border-t border-rule sm:grid-cols-4">
+    <dl className="grid grid-cols-2 border-t border-rule">
       {profile.specs.map((spec, i) => (
         <div
           key={spec.label}
