@@ -122,9 +122,9 @@ export const projects: Project[] = [
     stack: ["Python", "OpenCV", "Arduino", "C++", "Serial / UART"],
     featured: true,
     teaser:
-      "A two-axis pan-tilt camera rig that tracks a moving target and aims ahead of it \u2014 the forecasting research above, rebuilt as a real-time physical control loop.",
+      "A two-axis pan-tilt camera rig that tracks a moving target and aims ahead of it \u2014 an independent real-time implementation, built on a conclusion the forecasting research measured.",
     intro:
-      "The trajectory research proved a point on recorded video. This system tests whether it survives a latency budget, a serial link, and two servos with real inertia. A pan-tilt camera turret tracks a moving object and drives its servos toward where the target is heading, not where it currently is.",
+      "This shares no code with the trajectory research above \u2014 different tracker, different predictor, different runtime. What carries over is the finding: that project measured a residual LSTM against constant-velocity extrapolation and found no advantage, which is what justifies running the cheap predictor here. A pan-tilt camera turret tracks a moving object and drives its servos toward where the target is heading, not where it currently is, under a latency budget, a serial link, and two servos with real inertia.",
     sections: [
       {
         heading: "Architecture",

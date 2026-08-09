@@ -6,7 +6,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <p className="eyebrow">Contact</p>
         <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold leading-[1.1] tracking-tightest sm:text-4xl">
-          Open to mechatronics, hardware integration, and test engineering roles.
+          Open to mechatronics, computer engineering, hardware integration, and test
+          engineering roles.
         </h2>
         <div className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-3">
           <div>
