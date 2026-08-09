@@ -16,10 +16,8 @@ export const profile = {
 
   // Real, verifiable numbers pulled from shipped work.
   specs: [
-    { value: "5.81 px", label: "median forecast ADE" },
-    { value: "10/12", label: "windows beating plain LSTM" },
-    { value: "4", label: "SportsMOT clips evaluated" },
     { value: "3", label: "hardware + perception builds" },
+    { value: "3", label: "software builds" },
   ],
 };
 
