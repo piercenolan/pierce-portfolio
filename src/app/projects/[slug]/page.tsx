@@ -82,7 +82,12 @@ export default async function ProjectPage({
             <Reveal>
               <div className="mb-14 grid gap-5 sm:grid-cols-2">
                 {project.callouts.map((c) => (
-                  <Callout key={c.label + c.text} label={c.label} text={c.text} />
+                  <Callout
+                    key={c.label + c.text}
+                    label={c.label}
+                    text={c.text}
+                    tone={c.tone}
+                  />
                 ))}
               </div>
             </Reveal>
