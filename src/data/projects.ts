@@ -4,6 +4,13 @@ export type Figure = {
   wide?: boolean;
 };
 
+/**
+ * How a callout's result should read at a glance:
+ * good = it went our way, bad = it went against us, neutral = informational
+ * or a genuine tie. Defaults to neutral, which keeps the site's orange.
+ */
+export type CalloutTone = "good" | "bad" | "neutral";
+
 export type Project = {
   slug: string;
   title: string;
@@ -18,7 +25,7 @@ export type Project = {
   // The honest engineering story — what was hard, what was decided, what it cost.
   sections: { heading: string; body: string[] }[];
   // Margin annotations — the site's signature device.
-  callouts: { label: string; text: string }[];
+  callouts: { label: string; text: string; tone?: CalloutTone }[];
   figures?: Figure[];
   hero?: string;
   video?: { url: string; label: string };
@@ -69,11 +76,31 @@ export const projects: Project[] = [
       },
     ],
     callouts: [
-      { label: "Measured", text: "5.81 px median ADE \u2014 tied the physics baseline, did not beat it." },
-      { label: "Won", text: "10 of 12 windows vs. plain LSTM; ~50% error reduction." },
-      { label: "Negative result", text: "Hard rule post-refinement increased error on all 12 rules." },
-      { label: "Root cause", text: "3 failure windows traced to tracking, not forecasting." },
-      { label: "Evaluated", text: "4 SportsMOT clips; cross-clip transfer held within ~0.2 px of per-clip training." },
+      {
+        label: "Measured",
+        text: "5.81 px median ADE \u2014 tied the physics baseline, did not beat it.",
+        tone: "neutral",
+      },
+      {
+        label: "Won",
+        text: "10 of 12 windows vs. plain LSTM; ~50% error reduction.",
+        tone: "good",
+      },
+      {
+        label: "Negative result",
+        text: "Hard rule post-refinement increased error on all 12 rules.",
+        tone: "bad",
+      },
+      {
+        label: "Root cause",
+        text: "3 failure windows traced to tracking, not forecasting.",
+        tone: "neutral",
+      },
+      {
+        label: "Evaluated",
+        text: "4 SportsMOT clips; cross-clip transfer held within ~0.2 px of per-clip training.",
+        tone: "good",
+      },
     ],
     figures: [
       {
@@ -186,7 +213,6 @@ export const projects: Project[] = [
       },
     ],
     callouts: [
-      { label: "Build time", text: "1.5 hours against a 3-day estimate." },
       { label: "Method", text: "Sensor validated in isolation before actuator integration." },
     ],
     figures: [

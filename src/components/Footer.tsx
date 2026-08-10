@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-3">
           <div>
             <p className="eyebrow">Email</p>
-            <a href={`mailto:${profile.email}`} className="link-underline mt-1 block text-sm">
+            <a href={`mailto:${profile.email}`} className="link-underline mt-1 text-sm">
               {profile.email}
             </a>
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline mt-1 block text-sm"
+              className="link-underline mt-1 text-sm"
             >
               linkedin.com/in/piercenolan
             </a>
@@ -33,7 +33,7 @@ export default function Footer() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline mt-1 block text-sm"
+              className="link-underline mt-1 text-sm"
             >
               github.com/piercenolan
             </a>
