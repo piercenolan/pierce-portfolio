@@ -11,18 +11,26 @@ npm run dev
 
 Open http://localhost:3000
 
+## Scripts
+
+| Command | Does |
+|---------|------|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build. Regenerates the image manifest first via `prebuild` |
+| `npm run lint` | ESLint (flat config, `next/core-web-vitals`) |
+| `npm run check:contrast` | Fails if any colour pair the site uses drops below WCAG AA |
+| `npm test` | `lint` + `check:contrast` |
+| `npm run optimize:images` | Resizes, recompresses, and strips EXIF from `public/images`, in place |
+
+Run `optimize:images` after adding any photo — it caps the longest edge at 2000px and removes camera metadata. Then run a build so `src/data/imageDimensions.ts` picks up the new dimensions; that manifest is what lets `next/image` reserve the right aspect ratio and keeps layout shift at zero.
+
 ## Deploy to Vercel
 
-```bash
-git init
-git add .
-git commit -m "Initial portfolio build"
-git branch -M main
-git remote add origin https://github.com/piercenolan/pierce-portfolio.git
-git push -u origin main
-```
+Import the repo at [vercel.com/new](https://vercel.com/new) and accept the detected defaults.
 
-Then at [vercel.com/new](https://vercel.com/new): import `pierce-portfolio`, accept the detected defaults, and deploy. No environment variables or build settings needed.
+**Set one environment variable:** `NEXT_PUBLIC_SITE_URL` to the production domain (e.g. `https://nolanpierce.com`). Without it, `sitemap.xml`, `robots.txt`, and the canonical/Open Graph URLs fall back to the Vercel-generated deployment host.
+
+Security headers (CSP, HSTS, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`, `X-Content-Type-Options`) are set in `next.config.mjs` and apply automatically. The CSP relaxes `script-src` in development only, because React Refresh needs `eval`.
 
 ## Editing content
 
@@ -59,7 +67,12 @@ The recurring `[LABEL]` annotation blocks are the site's signature device — di
 
 - `public/Nolan_Pierce_Resume.pdf` — replace this file to update the résumé download
 - `public/images/projects/cv/` — research figures
+- `public/images/projects/misc/` — coursework project thumbnails
 - `public/images/projects/servo-gate/` — Arduino build photos
 - `public/images/projects/warehouse/` — Unreal Engine screenshots
+
+`public/` holds only what the site references; unused assets are pruned rather than left to ship.
+
+The favicon and the link-preview card are generated at build time from the design tokens — `src/app/icon.tsx` and `src/app/opengraph-image.tsx` — so they track the palette instead of drifting from it. There are no binary icon files to maintain.
 
 No third-party company logos are used anywhere on the site.

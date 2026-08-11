@@ -11,6 +11,10 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+// Every project is known at build time, so anything else is a 404 outright
+// rather than an attempted render.
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
@@ -22,6 +26,11 @@ export async function generateMetadata({
   return {
     title: `${project.title} — Nolan Pierce`,
     description: project.teaser,
+    openGraph: {
+      title: `${project.title} — Nolan Pierce`,
+      description: project.teaser,
+      type: "article",
+    },
   };
 }
 
@@ -31,22 +40,21 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  // One scan, not two: the index is needed for the next-project link anyway.
+  const index = projects.findIndex((p) => p.slug === slug);
+  const project = projects[index];
   if (!project) notFound();
 
-  const index = projects.findIndex((p) => p.slug === slug);
   const next = projects[(index + 1) % projects.length];
 
   const vertical = project.video?.aspect === "9/16";
   // An embed can fail for reasons the site cannot control — embedding disabled
   // on the video, or a network that blocks YouTube outright, which is common on
   // corporate and defence-contractor networks. Always offer the direct link.
+  const embedId = project.video?.url.match(/\/embed\/([\w-]+)/)?.[1];
   const watchUrl =
-    project.video &&
-    (project.video.watchUrl ??
-      (project.video.url.match(/\/embed\/([\w-]+)/)?.[1]
-        ? `https://www.youtube.com/watch?v=${project.video.url.match(/\/embed\/([\w-]+)/)![1]}`
-        : undefined));
+    project.video?.watchUrl ??
+    (embedId ? `https://www.youtube.com/watch?v=${embedId}` : undefined);
 
   return (
     <>

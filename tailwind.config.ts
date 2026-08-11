@@ -12,9 +12,11 @@ const config: Config = {
         ink: "#12171A",
         graphite: "#4A5459",
         rule: "#CDD3D6",
-        signal: "#1F77B4", // tab:blue — structure, links, primary
+        // tab:blue, deepened just enough that 10-11px links and tags clear
+        // WCAG AA on both grounds (4.84:1 on bench, 5.25:1 on panel). The
+        // published tab:blue reads 4.18:1 on bench and fails.
+        signal: "#1A6DA3",
         measure: "#FF7F0E", // tab:orange — measured values, emphasis
-        trace: "#17BECF", // tab:cyan — secondary data accent
         // Result semantics for callouts. Darkened from tab:green so 13px text
         // clears WCAG AA on the panel background (5.08:1); tab:red passes as-is
         // (4.72:1). Kept separate from the accents above so a favourable result
