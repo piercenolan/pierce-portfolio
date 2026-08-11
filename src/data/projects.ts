@@ -28,7 +28,17 @@ export type Project = {
   callouts: { label: string; text: string; tone?: CalloutTone }[];
   figures?: Figure[];
   hero?: string;
-  video?: { url: string; label: string };
+  video?: {
+    /** Privacy-proxy embed URL. */
+    url: string;
+    label: string;
+    /** Frame shape. Vertical Shorts need "9/16"; normal footage is 16:9. */
+    aspect?: "16/9" | "9/16";
+    /** Watch-page link, shown alongside the embed so a blocked or
+     *  embed-disabled video is never a dead black box. Derived from the
+     *  embed URL when omitted. */
+    watchUrl?: string;
+  };
   featured: boolean;
 };
 
@@ -192,6 +202,7 @@ export const projects: Project[] = [
     video: {
       url: "https://www.youtube-nocookie.com/embed/gyTrw5PYia4",
       label: "Gate actuating on proximity",
+      aspect: "9/16",
     },
     teaser:
       "A closed sense\u2013decide\u2013actuate loop on bare hardware: ultrasonic ranging drives a servo gate in real time.",
