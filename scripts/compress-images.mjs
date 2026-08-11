@@ -40,19 +40,17 @@ for (const file of files) {
   const tmp = `${file}.tmp`;
 
   try {
-    const { width, height } = await sharp(file).metadata();
-
-    // Constrain the longest edge, not just width, so a portrait photo does
-    // not stay oversized in the dimension that actually dominates its weight.
-    const longest = Math.max(width, height);
-    const scale = longest > MAX_EDGE ? MAX_EDGE / longest : 1;
-
+    // Rotate first so EXIF orientation is baked into the pixel grid, then
+    // constrain both edges with fit:"inside". Computing scale from a separate
+    // metadata() call used the *stored* width/height; when orientation swaps
+    // axes, resize ran on the rotated grid and the long edge could exceed
+    // MAX_EDGE.
     let pipeline = sharp(file)
-      // Bakes in EXIF orientation before the metadata is dropped, so a
-      // rotated phone photo does not come out sideways.
       .rotate()
       .resize({
-        width: Math.round(width * scale),
+        width: MAX_EDGE,
+        height: MAX_EDGE,
+        fit: "inside",
         withoutEnlargement: true,
       });
 
