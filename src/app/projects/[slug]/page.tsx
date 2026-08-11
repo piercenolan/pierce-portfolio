@@ -37,6 +37,17 @@ export default async function ProjectPage({
   const index = projects.findIndex((p) => p.slug === slug);
   const next = projects[(index + 1) % projects.length];
 
+  const vertical = project.video?.aspect === "9/16";
+  // An embed can fail for reasons the site cannot control — embedding disabled
+  // on the video, or a network that blocks YouTube outright, which is common on
+  // corporate and defence-contractor networks. Always offer the direct link.
+  const watchUrl =
+    project.video &&
+    (project.video.watchUrl ??
+      (project.video.url.match(/\/embed\/([\w-]+)/)?.[1]
+        ? `https://www.youtube.com/watch?v=${project.video.url.match(/\/embed\/([\w-]+)/)![1]}`
+        : undefined));
+
   return (
     <>
       <article>
@@ -97,8 +108,16 @@ export default async function ProjectPage({
           {project.video && (
             <Reveal>
               <div className="mb-14">
-                <div className="mx-auto max-w-sm border border-rule bg-black">
-                  <div className="relative aspect-[9/16] w-full">
+                <div
+                  className={`mx-auto border border-rule bg-black ${
+                    vertical ? "max-w-sm" : "max-w-3xl"
+                  }`}
+                >
+                  <div
+                    className={`relative w-full ${
+                      vertical ? "aspect-[9/16]" : "aspect-video"
+                    }`}
+                  >
                     <iframe
                       src={project.video.url}
                       title={project.video.label}
@@ -112,6 +131,19 @@ export default async function ProjectPage({
                 </div>
                 <p className="mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">
                   {project.video.label}
+                  {watchUrl && (
+                    <>
+                      {" · "}
+                      <a
+                        href={watchUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline"
+                      >
+                        Watch on YouTube
+                      </a>
+                    </>
+                  )}
                 </p>
               </div>
             </Reveal>
