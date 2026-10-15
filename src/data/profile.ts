@@ -7,7 +7,7 @@ export const profile = {
   email: "63npierce@gmail.com",
   linkedin: "https://www.linkedin.com/in/piercenolan",
   github: "https://github.com/piercenolan",
-  resume: "/Nolan_Pierce_Resume.pdf",
+  resume: "/PierceNewGrad_Resume.pdf",
 
   // Hero thesis — states the pivot as a capability, not an apology for it.
   thesis:
