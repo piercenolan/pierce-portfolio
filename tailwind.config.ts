@@ -23,6 +23,11 @@ const config: Config = {
         // never reads as mere emphasis.
         pass: "#1E7A34", // tab:green, darkened — result went our way
         fault: "#D62728", // tab:red — result went against us
+        // Cyanotype hero panel — the one bold surface on the page. Text on it
+        // never uses a single-word accent colour; it's paper or haze only.
+        blueprint: "#14375A",
+        paper: "#F2F5F7", // headline and buttons on blueprint
+        haze: "#AFC2D3", // secondary text and rules on blueprint
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
@@ -30,7 +35,8 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       letterSpacing: {
-        tightest: "-0.045em",
+        // Was -0.045em for the wide cut; condensed Archivo needs far less.
+        tightest: "-0.012em",
       },
       maxWidth: {
         prose: "68ch",

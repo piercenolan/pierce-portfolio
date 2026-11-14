@@ -65,7 +65,7 @@ The recurring `[LABEL]` annotation blocks are the site's signature device — di
 
 ## Assets
 
-- `public/PierceNewGrad_Resume.pdf` — replace this file to update the résumé download
+- `public/PierceResume_Rotational.pdf` — replace this file to update the résumé download
 - `public/images/projects/cv/` — research figures
 - `public/images/projects/misc/` — coursework project thumbnails
 - `public/images/projects/servo-gate/` — Arduino build photos

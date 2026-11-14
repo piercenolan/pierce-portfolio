@@ -9,13 +9,13 @@ import { profile } from "@/data/profile";
  */
 export default function SpecStrip() {
   return (
-    <dl className="grid grid-cols-2 gap-px border-t border-rule bg-rule sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
+    <dl className="grid grid-cols-2 gap-px border-t border-haze/40 bg-haze/40 sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
       {profile.specs.map((spec) => (
-        <div key={spec.label} className="bg-bench px-4 py-4">
-          <dt className="font-mono text-[10px] uppercase tracking-[0.14em] text-graphite">
+        <div key={spec.label} className="bg-blueprint px-4 py-4">
+          <dt className="eyebrow text-haze">
             {spec.label}
           </dt>
-          <dd className="mt-1 font-display text-2xl font-bold tracking-tightest text-ink">
+          <dd className="mt-1 font-display text-2xl font-bold tracking-tightest text-paper">
             {spec.value}
           </dd>
         </div>

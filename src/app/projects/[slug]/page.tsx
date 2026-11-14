@@ -71,7 +71,7 @@ export default async function ProjectPage({
             </Link>
 
             <div className="mt-8 flex items-center gap-2.5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-graphite">
+              <span className="eyebrow">
                 {project.kicker} · {project.year}
               </span>
               <StatusTag status={project.status} />
@@ -181,7 +181,7 @@ export default async function ProjectPage({
           {project.figures && project.figures.length > 0 && (
             <div className="mt-16">
               <Reveal>
-                <p className="eyebrow border-t border-ink pt-5">Figures</p>
+                <h2 className="eyebrow border-t border-ink pt-5">Figures</h2>
               </Reveal>
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
                 {project.figures.map((fig, i) => (
@@ -205,7 +205,7 @@ export default async function ProjectPage({
       </article>
 
       {/* Next project */}
-      <nav className="border-t border-rule bg-panel">
+      <nav aria-label="Next project" className="border-t border-rule bg-panel">
         <Link
           href={`/projects/${next.slug}`}
           className="group mx-auto flex max-w-5xl items-center justify-between gap-6 px-5 py-10 sm:px-8"
