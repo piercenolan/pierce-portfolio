@@ -15,6 +15,11 @@
     @apply bg-bench text-ink font-body antialiased;
   }
 
+  /* Sticky nav is ~60px tall; keep anchor targets (#work, #experience) clear of it. */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+
   ::selection {
     background: #ff7f0e;
     color: #12171a;
@@ -24,6 +29,12 @@
   button:focus-visible {
     outline: 2px solid #1f77b4;
     outline-offset: 3px;
+  }
+
+  /* Blue focus ring vanishes on the blueprint hero; use paper there. */
+  .bg-blueprint a:focus-visible,
+  .bg-blueprint button:focus-visible {
+    outline-color: #f2f5f7;
   }
 }
 
@@ -37,13 +48,28 @@
     background-size: 28px 28px;
   }
 
+  /* Same grid, drawn in paper on the blueprint hero — visible, not a texture. */
+  .graticule-light {
+    background-image:
+      linear-gradient(to right, rgba(242, 245, 247, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 245, 247, 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
   .graticule-fade {
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
   }
 
+  /* Display type is set condensed: drawing-title lettering, not a web headline. */
+  .font-display {
+    font-stretch: 78%;
+  }
+
+  /* Section labels: sentence case in the display face. Mono caps are reserved
+     for the [LABEL] callouts so that device stays distinctive. */
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-graphite;
+    @apply font-display text-[14px] font-semibold text-graphite;
   }
 
   .rule-t {

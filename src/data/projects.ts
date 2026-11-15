@@ -27,6 +27,9 @@ export type Project = {
   // Margin annotations — the site's signature device.
   callouts: { label: string; text: string; tone?: CalloutTone }[];
   figures?: Figure[];
+  // Build checklist for in-progress hardware, shown in place of demo media.
+  // Each state must match the real bench status — never mark ahead of it.
+  build?: { item: string; state: "Validated" | "Written" | "Open" }[];
   hero?: string;
   video?: {
     /** Privacy-proxy embed URL. */
@@ -158,6 +161,14 @@ export const projects: Project[] = [
     year: "2026",
     stack: ["Python", "OpenCV", "Arduino", "C++", "Serial / UART"],
     featured: true,
+    build: [
+      { item: "Color-blob tracking (webcam)", state: "Validated" },
+      { item: "Constant-velocity prediction (webcam)", state: "Validated" },
+      { item: "Arduino serial listener", state: "Written" },
+      { item: "Mechanical assembly", state: "Open" },
+      { item: "Pixel-to-angle mapping", state: "Open" },
+      { item: "Closed-loop tuning", state: "Open" },
+    ],
     teaser:
       "A two-axis pan-tilt camera rig that tracks a moving target and aims ahead of it \u2014 an independent real-time implementation, built on a conclusion the forecasting research measured.",
     intro:

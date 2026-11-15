@@ -7,7 +7,7 @@ export const profile = {
   email: "63npierce@gmail.com",
   linkedin: "https://www.linkedin.com/in/piercenolan",
   github: "https://github.com/piercenolan",
-  resume: "/Nolan_Pierce_Resume.pdf",
+  resume: "/PierceResume_Rotational.pdf",
 
   // Hero thesis — states the pivot as a capability, not an apology for it.
   thesis:
@@ -18,10 +18,20 @@ export const profile = {
 
   // Real, verifiable numbers pulled from shipped work.
   specs: [
-    { value: "3", label: "hardware + perception builds" },
-    { value: "3", label: "software builds" },
+    { value: "3", label: "Hardware + perception builds" },
+    { value: "3", label: "Software builds" },
   ],
 };
+
+// About-page bio, one string per paragraph.
+export const about = [
+  "I’m a computer science student at Stanford specializing in visual computing, currently focused on the layer where software meets physical hardware — perception pipelines, real-time control loops, and the embedded code that drives actuators.",
+  "What draws me to this work is the feedback loop. Writing code is most rewarding to me when its output is something I can observe directly: a servo that responds to a sensor reading, a camera rig that tracks a moving target, an environment that behaves the way a physical installation does. Engineering a system end to end — and then measuring whether it actually performs — is the part of the work I pursue on my own time.",
+  "That interest has shaped what I build. I’ve developed a multi-object tracking and trajectory forecasting pipeline benchmarked against a physics baseline, closed sensor-to-actuator control loops on microcontroller hardware, and a two-axis pan-tilt tracking rig currently in assembly. Each one required the same combination: write the perception software, program the microcontroller, wire the hardware, and validate the result against a measurement rather than an impression.",
+  "At Boeing this past summer I built a real-time 3D environment that scaled a single physical showcase into a virtual showroom reachable from any site — translating a physical installation into an interactive system, and presenting it live to Boeing leadership.",
+  "I’ve been accepted to Stanford’s coterminal master’s program in Computer Science, where I’ll concentrate in artificial intelligence. I’m targeting mechatronics integration, computer engineering, and test engineering roles — work that takes a design and makes it real, reliable, and repeatable, and where a software background is an asset rather than a detour.",
+  "I’m currently studying abroad in Berlin, where I’m pursuing hands-on time in production engineering and robotics labs.",
+];
 
 export const experience = [
   {
